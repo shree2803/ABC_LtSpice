@@ -63,8 +63,8 @@ def parse_ltspice_log(log_path):
 
 # Function to calculate the Power-Delay Product (PDP)
 def pdp_cost_function(params):
-    netlist_path = "DCMOS_PROJ_20T_delay_pr.net"
-    log_path = "DCMOS_PROJ_20T_delay_pr.log"
+    netlist_path = "delay_pr.net"
+    log_path = "delay_pr.log"
     ltspice_path = r"C:\Users\shree\AppData\Local\Programs\ADI\LTspice\LTspice.exe"  # Adjust as needed
 
     modify_param_in_netfile(netlist_path, params)
