@@ -23,8 +23,9 @@ We re-implemented the idea and connected it with **LTspice simulations** for rea
   
 - **main.py** – Main Python script with ABC algorithm and LTspice integration  
 - **delay_pr.net** – LTspice netlist file (circuit description with .param definitions)  
+- **delay_pr.asc** – LTspice schematic file  
 - **README.md** – Project documentation
-- **DCMOS_PROJ_20T_delay_pr.asc** – LTspice schematic file  
+
 
 
 ##  Requirements
