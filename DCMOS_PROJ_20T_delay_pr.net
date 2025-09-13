@@ -1,0 +1,185 @@
+* C:\Users\shree\OneDrive\Desktop\DCMOS_project\DCMOS_PROJ_20T_delay.asc
+V1 Vdd 0 1.2
+Va A 0 PULSE(0 1.2 0 1p 1p 50u 100u 1)
+Vb B 0 PULSE(0 1.2 0 1p 1p 20u 40u 5)
+Vc C 0 PULSE(0 1.2 0 1p 1p 10u 20u 5)
+M�P1 Vdd A Abar Vdd PMOS l=L w=P1
+M�N1 Abar A 0 0 NMOS l=L w=N1
+M�N2 N001 A B 0 NMOS l=L w=N2
+M�N3 N001 B A 0 NMOS l=L w=N3
+M�N4 N003 Abar B 0 NMOS l=L w=N4
+M�N5 N003 B N004 0 NMOS l=L w=N5
+M�N6 N004 A 0 0 NMOS l=L w=N6
+M�N7 S C N001 0 NMOS l=L w=N7
+M�N8 S N001 C 0 NMOS l=L w=N8
+M�N9 Cout N001 A 0 NMOS l=L w=N9
+M�N10 Cout N003 C 0 NMOS l=L w=N10
+M�P5 N003 B A Vdd PMOS l=L w=P5
+M�P6 B A N003 Vdd PMOS l=L w=P6
+M�P2 Vdd B N002 Vdd PMOS l=L w=P2
+M�P3 N002 A N001 Vdd PMOS l=L w=P3
+M�P4 B Abar N001 Vdd PMOS l=L w=P4
+M�P7 C N003 S Vdd PMOS l=L w=P7
+M�P8 N003 C S Vdd PMOS l=L w=P8
+M�P9 C N001 Cout Vdd PMOS l=L w=P9
+M�P10 B N003 Cout Vdd PMOS l=L w=P10
+C2 S 0 10p
+C1 Cout 0 10p
+R2 S 0 500k
+R1 Cout 0 500k
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\shree\AppData\Local\LTspice\lib\cmp\standard.mos
+.PARAM VDD = 1.2
+.meas sum AVG V(S)*I(R2)
+.meas carry AVG V(Cout)*I(R1)
+.tran 0 100u 0
+* Beta Version released on 2/22/06
+* PTM 65nm NMOS
+.model  nmos  nmos  level = 54
++version = 4.7          binunit = 1            paramchk= 1            mobmod  = 0
++capmod  = 2            igcmod  = 1            igbmod  = 1            geomod  = 1
++diomod  = 1            rdsmod  = 0            rbodymod= 1            rgatemod= 1
++permod  = 1            acnqsmod= 0            trnqsmod= 0
++tnom    = 27           toxe    = 1.85e-9      toxp    = 1.2e-9       toxm    = 1.85e-9
++dtox    = 0.65e-9      epsrox  = 3.9          wint    = 5e-009       lint    = 5.25e-009
++ll      = 0            wl      = 0            lln     = 1            wln     = 1
++lw      = 0            ww      = 0            lwn     = 1            wwn     = 1
++lwl     = 0            wwl     = 0            xpart   = 0            toxref  = 1.85e-9
++xl      = -30e-9
++vth0    = 0.423        k1      = 0.4          k2      = 0.01         k3      = 0
++k3b     = 0            w0      = 2.5e-006     dvt0    = 1            dvt1    = 2
++dvt2    = -0.032       dvt0w   = 0            dvt1w   = 0            dvt2w   = 0
++dsub    = 0.1          minv    = 0.05         voffl   = 0            dvtp0   = 1.0e-009
++dvtp1   = 0.1          lpe0    = 0            lpeb    = 0            xj      = 1.96e-008
++ngate   = 2e+020       ndep    = 2.54e+018    nsd     = 2e+020       phin    = 0
++cdsc    = 0.000        cdscb   = 0            cdscd   = 0            cit     = 0
++voff    = -0.13        nfactor = 1.9          eta0    = 0.0058       etab    = 0
++vfb     = -0.55        u0      = 0.0491       ua      = 6e-010       ub      = 1.2e-018
++uc      = 0            vsat    = 124340       a0      = 1.0          ags     = 1e-020
++a1      = 0            a2      = 1.0          b0      = 0            b1      = 0
++keta    = 0.04         dwg     = 0            dwb     = 0            pclm    = 0.04
++pdiblc1 = 0.001        pdiblc2 = 0.001        pdiblcb = -0.005       drout   = 0.5
++pvag    = 1e-020       delta   = 0.01         pscbe1  = 8.14e+008    pscbe2  = 1e-007
++fprout  = 0.2          pdits   = 0.08         pditsd  = 0.23         pditsl  = 2.3e+006
++rsh     = 5            rdsw    = 165          rsw     = 85           rdw     = 85
++rdswmin = 0            rdwmin  = 0            rswmin  = 0            prwg    = 0
++prwb    = 6.8e-011     wr      = 1            alpha0  = 0.074        alpha1  = 0.005
++beta0   = 30           agidl   = 0.0002       bgidl   = 2.1e+009     cgidl   = 0.0002
++egidl   = 0.8
++aigbacc = 0.012        bigbacc = 0.0028       cigbacc = 0.002
++nigbacc = 1            aigbinv = 0.014        bigbinv = 0.004        cigbinv = 0.004
++eigbinv = 1.1          nigbinv = 3            aigc    = 0.012        bigc    = 0.0028
++cigc    = 0.002        aigsd   = 0.012        bigsd   = 0.0028       cigsd   = 0.002
++nigc    = 1            poxedge = 1            pigcd   = 1            ntox    = 1
++xrcrg1  = 12           xrcrg2  = 5
++cgso    = 1.5e-010     cgdo    = 1.5e-010     cgbo    = 2.56e-011    cgdl    = 2.653e-10
++cgsl    = 2.653e-10    ckappas = 0.03         ckappad = 0.03         acde    = 1
++moin    = 15           noff    = 0.9          voffcv  = 0.02
++kt1     = -0.11        kt1l    = 0            kt2     = 0.022        ute     = -1.5
++ua1     = 4.31e-009    ub1     = 7.61e-018    uc1     = -5.6e-011    prt     = 0
++at      = 33000
++fnoimod = 1            tnoimod = 0
++jss     = 0.0001       jsws    = 1e-011       jswgs   = 1e-010       njs     = 1
++ijthsfwd= 0.01         ijthsrev= 0.001        bvs     = 10           xjbvs   = 1
++jsd     = 0.0001       jswd    = 1e-011       jswgd   = 1e-010       njd     = 1
++ijthdfwd= 0.01         ijthdrev= 0.001        bvd     = 10           xjbvd   = 1
++pbs     = 1            cjs     = 0.0005       mjs     = 0.5          pbsws   = 1
++cjsws   = 5e-010       mjsws   = 0.33         pbswgs  = 1            cjswgs  = 3e-010
++mjswgs  = 0.33         pbd     = 1            cjd     = 0.0005       mjd     = 0.5
++pbswd   = 1            cjswd   = 5e-010       mjswd   = 0.33         pbswgd  = 1
++cjswgd  = 5e-010       mjswgd  = 0.33         tpb     = 0.005        tcj     = 0.001
++tpbsw   = 0.005        tcjsw   = 0.001        tpbswg  = 0.005        tcjswg  = 0.001
++xtis    = 3            xtid    = 3
++dmcg    = 0e-006       dmci    = 0e-006       dmdg    = 0e-006       dmcgt   = 0e-007
++dwj     = 0.0e-008     xgw     = 0e-007       xgl     = 0e-008
++rshg    = 0.4          gbmin   = 1e-010       rbpb    = 5            rbpd    = 15
++rbps    = 15           rbdb    = 15           rbsb    = 15           ngcon   = 1
+* PTM 65nm PMOS
+.model  pmos  pmos  level = 54
++version = 4.7          binunit = 1            paramchk= 1            mobmod  = 0
++capmod  = 2            igcmod  = 1            igbmod  = 1            geomod  = 1
++diomod  = 1            rdsmod  = 0            rbodymod= 1            rgatemod= 1
++permod  = 1            acnqsmod= 0            trnqsmod= 0
++tnom    = 27           toxe    = 1.95e-009    toxp    = 1.2e-009     toxm    = 1.95e-009
++dtox    = 0.75e-9      epsrox  = 3.9          wint    = 5e-009       lint    = 5.25e-009
++ll      = 0            wl      = 0            lln     = 1            wln     = 1
++lw      = 0            ww      = 0            lwn     = 1            wwn     = 1
++lwl     = 0            wwl     = 0            xpart   = 0            toxref  = 1.95e-009
++xl      = -30e-9
++vth0    = -0.365       k1      = 0.4          k2      = -0.01        k3      = 0
++k3b     = 0            w0      = 2.5e-006     dvt0    = 1            dvt1    = 2
++dvt2    = -0.032       dvt0w   = 0            dvt1w   = 0            dvt2w   = 0
++dsub    = 0.1          minv    = 0.05         voffl   = 0            dvtp0   = 1e-009
++dvtp1   = 0.05         lpe0    = 0            lpeb    = 0            xj      = 1.96e-008
++ngate   = 2e+020       ndep    = 1.87e+018    nsd     = 2e+020       phin    = 0
++cdsc    = 0.000        cdscb   = 0            cdscd   = 0            cit     = 0
++voff    = -0.126       nfactor = 1.9          eta0    = 0.0058       etab    = 0
++vfb     = 0.55         u0      = 0.00574      ua      = 2.0e-009     ub      = 0.5e-018
++uc      = 0            vsat    = 70000        a0      = 1.0          ags     = 1e-020
++a1      = 0            a2      = 1            b0      = -1e-020      b1      = 0
++keta    = -0.047       dwg     = 0            dwb     = 0            pclm    = 0.12
++pdiblc1 = 0.001        pdiblc2 = 0.001        pdiblcb = 3.4e-008     drout   = 0.56
++pvag    = 1e-020       delta   = 0.01         pscbe1  = 8.14e+008    pscbe2  = 9.58e-007
++fprout  = 0.2          pdits   = 0.08         pditsd  = 0.23         pditsl  = 2.3e+006
++rsh     = 5            rdsw    = 165          rsw     = 85           rdw     = 85
++rdswmin = 0            rdwmin  = 0            rswmin  = 0            prwg    = 3.22e-008
++prwb    = 6.8e-011     wr      = 1            alpha0  = 0.074        alpha1  = 0.005
++beta0   = 30           agidl   = 0.0002       bgidl   = 2.1e+009     cgidl   = 0.0002
++egidl   = 0.8
++aigbacc = 0.012        bigbacc = 0.0028       cigbacc = 0.002
++nigbacc = 1            aigbinv = 0.014        bigbinv = 0.004        cigbinv = 0.004
++eigbinv = 1.1          nigbinv = 3            aigc    = 0.69         bigc    = 0.0012
++cigc    = 0.0008       aigsd   = 0.0087       bigsd   = 0.0012       cigsd   = 0.0008
++nigc    = 1            poxedge = 1            pigcd   = 1            ntox    = 1
++xrcrg1  = 12           xrcrg2  = 5
++cgso    = 1.5e-010     cgdo    = 1.5e-010     cgbo    = 2.56e-011    cgdl    = 2.653e-10
++cgsl    = 2.653e-10    ckappas = 0.03         ckappad = 0.03         acde    = 1
++moin    = 15           noff    = 0.9          voffcv  = 0.02
++kt1     = -0.11        kt1l    = 0            kt2     = 0.022        ute     = -1.5
++ua1     = 4.31e-009    ub1     = 7.61e-018    uc1     = -5.6e-011    prt     = 0
++at      = 33000
++fnoimod = 1            tnoimod = 0
++jss     = 0.0001       jsws    = 1e-011       jswgs   = 1e-010       njs     = 1
++ijthsfwd= 0.01         ijthsrev= 0.001        bvs     = 10           xjbvs   = 1
++jsd     = 0.0001       jswd    = 1e-011       jswgd   = 1e-010       njd     = 1
++ijthdfwd= 0.01         ijthdrev= 0.001        bvd     = 10           xjbvd   = 1
++pbs     = 1            cjs     = 0.0005       mjs     = 0.5          pbsws   = 1
++cjsws   = 5e-010       mjsws   = 0.33         pbswgs  = 1            cjswgs  = 3e-010
++mjswgs  = 0.33         pbd     = 1            cjd     = 0.0005       mjd     = 0.5
++pbswd   = 1            cjswd   = 5e-010       mjswd   = 0.33         pbswgd  = 1
++cjswgd  = 5e-010       mjswgd  = 0.33         tpb     = 0.005        tcj     = 0.001
++tpbsw   = 0.005        tcjsw   = 0.001        tpbswg  = 0.005        tcjswg  = 0.001
++xtis    = 3            xtid    = 3
++dmcg    = 0e-006       dmci    = 0e-006       dmdg    = 0e-006       dmcgt   = 0e-007
++dwj     = 0.0e-008     xgw     = 0e-007       xgl     = 0e-008
++rshg    = 0.4          gbmin   = 1e-010       rbpb    = 5            rbpd    = 15
++rbps    = 15           rbdb    = 15           rbsb    = 15           ngcon   = 1
+* Measure propagation delays for SUM output from A, B, and Cin inputs
+.meas timeA1 FIND time WHEN V(A) = 0.6 RISE=1
+.meas timeSum1 FIND time WHEN V(S) = 0.6 RISE=1
+.meas tPHL_Sum_A param timeSum1 - timeA1
+.meas timeA2 FIND time WHEN V(A) = 0.6 FALL=1
+.meas timeSum2 FIND time WHEN V(S) = 0.6 FALL=1
+.meas tPLH_Sum_A param timeSum2 - timeA2
+.meas timeB1 FIND time WHEN V(B) = 0.6 RISE=1
+.meas timeSum3 FIND time WHEN V(S) = 0.6 RISE=1
+.meas tPHL_Sum_B param timeSum3 - timeB1
+.meas timeB2 FIND time WHEN V(B) = 0.6 FALL=1
+.meas timeSum4 FIND time WHEN V(S) = 0.6 FALL=1
+.meas tPLH_Sum_B param timeSum4 - timeB2
+.meas timeCin1 FIND time WHEN V(C) = 0.6 RISE=1
+.meas timeSum5 FIND time WHEN V(S) = 0.6 RISE=1
+.meas tPHL_Sum_Cin param timeSum5 - timeCin1
+.meas timeCin2 FIND time WHEN V(C) = 0.6 FALL=1
+.meas timeSum6 FIND time WHEN V(S) = 0.6 FALL=1
+.meas tPLH_Sum_Cin param timeSum6 - timeCin2
+* Average propagation delays for each input-output path to SUM
+.meas delay_Sum_A param (tPHL_Sum_A + tPLH_Sum_A) / 2
+.meas delay_Sum_B param (tPHL_Sum_B + tPLH_Sum_B) / 2
+.meas delay_Sum_Cin param (tPHL_Sum_Cin + tPLH_Sum_Cin) / 2
+.param P1=700nm P2=150nm P3=700nm P4=700nm P5=700nm P6=168nm P7=700nm P8=685nm P9=308nm P10=225nm
+.param L 65nm
+.param N1=1.9936069109371215e-07 N2=2.5531818411360524e-07 N3=2.4449064442349614e-07 N4=2.339991009589635e-07 N5=1.3445324888873976e-07 N6=1.6419216876971233e-07 N7=2.6174299907037064e-07 N8=3.0193935417489547e-07 N9=1.9617266183688338e-07 N10=2.47890317415609e-07
+.backanno
+.end
