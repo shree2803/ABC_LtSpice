@@ -20,6 +20,10 @@ We re-implemented the idea and connected it with **LTspice simulations** for rea
 ---
 
 ##  Project Structure
+  
+- **main.py** – Main Python script with ABC algorithm and LTspice integration  
+- **delay_pr.net** – LTspice netlist file (circuit description with .param definitions)  
+- **README.md** – Project documentation  
 
 
 ##  Requirements
